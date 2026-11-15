@@ -25,16 +25,16 @@ Branchlock is built around a simple promise: reviewing security should not requi
 
 ## Run it locally
 
-No build step or dependencies are required. Serve the static app from the project folder:
+No build step, backend, or third-party dependencies are required. The app scans public repositories directly from the visitor's browser:
 
 ```bash
 cd workflow-guardian-prototype/dist
 python3 -m http.server 8080
 ```
 
-Then visit [http://localhost:8080](http://localhost:8080).
+Then visit [http://127.0.0.1:8080](http://127.0.0.1:8080). It scans accessible public GitHub repositories through GitHub's public API, requests no credentials, and deliberately rejects private repositories.
 
-Opening `index.html` directly also works for most of the interface, but serving it locally is recommended so the service worker and offline experience can run normally.
+GitHub Pages can host this static application directly. GitHub's anonymous API limit applies per visitor IP.
 
 ## Project layout
 
@@ -46,6 +46,9 @@ workflow-guardian-prototype/
 │   ├── styles.css        # Responsive visual system
 │   └── sw.js             # Offline application shell
 └── .openai/hosting.json  # Static-hosting configuration
+workflow-guardian-service/
+├── server.py              # Credentialless public-repository scan API and static host
+└── test_server.py          # Scanner unit tests
 ```
 
 ## Product direction

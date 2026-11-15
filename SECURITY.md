@@ -4,7 +4,7 @@
 
 Branchlock is a static, browser-based prototype for reviewing GitHub Actions security findings. This policy covers the files in this repository, especially the deployable application in `workflow-guardian-prototype/dist/`.
 
-The prototype is client-side only: it does not connect to GitHub, accept credentials, send data to a backend, or modify repositories.
+The deployed v1 service may read public GitHub workflow files through GitHub's public API. It does not accept credentials, cookies, OAuth tokens, or GitHub App installations; it does not modify repositories or persist reports server-side.
 
 ## Threat Model and Trust Boundaries
 
@@ -13,6 +13,8 @@ Repository names and browser-local preferences are treated as untrusted input. F
 ## Security Invariants
 
 - Never request, store, expose, or transmit access tokens, credentials, cookies, or secrets.
+- Reject supplied authorization headers and private repositories rather than attempting authenticated access.
+- Do not log repository identifiers, request bodies, workflow contents, report contents, or IP addresses.
 - Never write to a user’s repository or execute repository content.
 - Keep report history and preferences local to the browser.
 - Escape user-controlled values before rendering them into the page.

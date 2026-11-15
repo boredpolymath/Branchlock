@@ -1,0 +1,15 @@
+services:
+  branchlock:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      BRANCHLOCK_HOST: 0.0.0.0
+      PORT: "8080"
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL

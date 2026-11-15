@@ -1,0 +1,6 @@
+.git
+.github
+__pycache__/
+*.py[cod]
+.DS_Store
+RELEASE_READINESS_CHECKLIST.md
