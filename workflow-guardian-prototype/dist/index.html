@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="description" content="A privacy-first workspace for reviewing GitHub Actions security." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Branchlock</title>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="topbar">
+      <a class="brand" href="#overview" aria-label="Branchlock home"><span class="brand-mark" aria-hidden="true"><img src="latch-lock.svg" alt="" /></span><span class="brand-name">Branchlock</span></a>
+      <div class="top-search"><span>⌕</span><input id="repoInput" aria-label="Repository URL" value="octo-labs/payment-service" placeholder="owner/repository or GitHub URL" /><kbd>⌘ K</kbd></div>
+      <div class="top-actions"><button class="icon-btn theme-button" id="themeToggle" title="Switch to light theme" aria-label="Switch to light theme" aria-pressed="true">☼</button><button class="icon-btn" id="helpBtn" title="Help">?</button><button class="avatar" title="Local profile">DL</button></div>
+    </header>
+    <div class="layout">
+      <aside class="sidebar" aria-label="Main navigation">
+        <nav>
+          <p class="nav-section">Review</p>
+          <a class="nav-link active" href="#overview" data-view="overview"><span>▦</span>Overview</a>
+          <a class="nav-link" href="#findings" data-view="findings"><span>◇</span>Findings <b id="navFindingCount">6</b></a>
+          <a class="nav-link" href="#workflows" data-view="workflows"><span>⌘</span>Workflows</a>
+          <p class="nav-section reports-section">Reports</p>
+          <a class="nav-link" href="#history" data-view="history"><span>◷</span>Reports</a>
+        </nav>
+        <div class="sidebar-bottom"><a class="nav-link" href="#settings" data-view="settings"><span>⚙</span>Settings</a><a class="nav-link" href="#privacy" data-view="privacy"><span>♢</span>Privacy &amp; data</a><p>v0.1.0 · <button class="text-btn" id="offlineToggle">Online</button></p></div>
+      </aside>
+      <main id="main">
+        <section class="view active" id="overview">
+          <div class="page-heading"><div><div class="crumb">REPOSITORIES / OCTO-LABS / PAYMENT-SERVICE</div><h1>Security overview</h1><p class="muted">A read-only review of your GitHub Actions workflows.</p></div><div class="heading-actions"><button class="primary" id="scanBtn">↻ Scan</button><button class="secondary" id="exportBtn">⇩ Export</button></div></div>
+          <div class="notice" id="scanNotice"><span class="notice-dot"></span><span id="scanStatusText"><strong>Last scan completed</strong> 9 minutes ago at revision <code>1a2c9f8</code></span><button class="notice-link" id="scanDetails">View scan details →</button></div>
+          <div class="metrics" aria-label="Scan summary"><article class="metric critical"><p>Critical</p><strong>1</strong><span>Requires prompt attention</span></article><article class="metric high"><p>High</p><strong>2</strong><span>Review before next release</span></article><article class="metric medium"><p>Medium</p><strong>3</strong><span>Improve when practical</span></article><article class="metric clean"><p>Workflows analyzed</p><strong>4 <em>/ 4</em></strong><span>Complete coverage</span></article></div>
+          <div class="dashboard-grid">
+            <section class="panel posture"><div class="panel-head"><div><h2>Security posture</h2><p>Finding severity across all workflows</p></div><button class="text-btn" data-go="findings">View all findings →</button></div><div class="posture-content"><div class="score-ring"><div><strong>58</strong><span>out of 100</span></div></div><div class="severity-bars"><div><label><span><i class="dot critical"></i>Critical</span><b>1 finding</b></label><div class="bar"><i class="critical" style="width: 86%"></i></div><label><span><i class="dot high"></i>High</span><b>2 findings</b></label><div class="bar"><i class="high" style="width: 66%"></i></div><label><span><i class="dot medium"></i>Medium</span><b>3 findings</b></label><div class="bar"><i class="medium" style="width: 44%"></i></div></div></div><footer><span>Rule set <code>2026.11</code></span><span>Confidence: high</span></footer></section>
+            <section class="panel activity"><div class="panel-head"><div><h2>Recent activity</h2><p>Changes since your last scan</p></div></div><ol><li><i class="status resolved">✓</i><div><strong>Workflow permissions tightened</strong><span>Resolved in 6f912ce · 2 days ago</span></div></li><li><i class="status new">+</i><div><strong>Unpinned action detected</strong><span>Introduced in 1a2c9f8 · 9 min ago</span></div></li><li><i class="status scan">↻</i><div><strong>Security scan completed</strong><span>6 findings across 4 workflows</span></div></li></ol></section>
+          </div>
+          <section class="panel priority"><div class="panel-head"><div><h2>Priority findings</h2><p>Start with the highest-impact workflow risks.</p></div><button class="text-btn" data-go="findings">See all 6 findings →</button></div><div id="priorityList"></div></section>
+        </section>
+        <section class="view" id="findings">
+          <div class="page-heading"><div><div class="crumb">PAYMENT-SERVICE / SECURITY REVIEW</div><h1>Findings</h1><p class="muted"><span id="findingTotal">6</span> issues detected in the latest scan.</p></div></div>
+          <div class="filter-row"><label class="select-wrap">Severity <select id="severityFilter"><option value="all">All severities</option><option>Critical</option><option>High</option><option>Medium</option></select></label><label class="select-wrap">Workflow <select id="workflowFilter"><option value="all">All workflows</option><option>release.yml</option><option>ci.yml</option><option>pull-request.yml</option><option>deploy.yml</option></select></label><label class="find-search">⌕<input id="findSearch" placeholder="Filter by title, rule, or file" /></label></div><div class="filter-actions"><button class="secondary" id="filterClear">Clear filters</button></div>
+          <div class="findings-layout"><section class="panel finding-table"><div id="findingList"></div></section><aside class="detail-card" id="detailCard" aria-live="polite"></aside></div>
+        </section>
+        <section class="view" id="workflows"><div class="page-heading"><div><div class="crumb">PAYMENT-SERVICE / AUTOMATION</div><h1>Workflow explorer</h1><p class="muted">4 workflow files analyzed at revision <code>1a2c9f8</code>.</p></div></div><div class="panel workflow-list" id="workflowList"></div><div class="workflow-actions"><button class="primary" data-go="findings">Review findings</button></div></section>
+        <section class="view" id="history"><div class="page-heading"><div><div class="crumb">PAYMENT-SERVICE / LOCAL REPORTS</div><h1>Reports</h1><p class="muted">Current and previous scan reports stored in this browser.</p></div></div><div class="panel history-list" id="historyList"></div><div class="report-actions" aria-label="Report actions"><button class="primary" id="historyScan">↻ Scan</button><button class="secondary danger-outline" id="clearReports">Clear reports</button></div></section>
+        <section class="view" id="settings"><div class="page-heading"><div><div class="crumb">PREFERENCES</div><h1>Settings</h1><p class="muted">Control how this browser retains security reports.</p></div></div><section class="panel settings-card"><h2>Appearance</h2><p>Choose a comfortable working surface for reviewing security findings.</p><div class="setting-line"><div><strong>Security console theme</strong><small>Dark-slate surfaces with high-contrast risk signals.</small></div><button class="theme-choice" id="settingsTheme" aria-pressed="true">Dark</button></div><div class="setting-line"><div><strong>Privacy &amp; data</strong><small>Review local storage, privacy practices, and deletion controls.</small></div><button class="secondary" data-go="privacy">Open</button></div><h2 class="settings-subhead">Local report retention</h2><p>Keep the newest reports for each repository. Browser-managed storage may be cleared by your browser.</p><div class="setting-line"><label for="retention">Reports per repository</label><select id="retention"><option value="20">20 reports (recommended)</option><option value="10">10 reports</option><option value="5">5 reports</option></select></div><div class="setting-line"><div><strong>Offline application shell</strong><small>Cache the app so saved reports remain readable offline.</small></div><button class="toggle on" id="cacheToggle" aria-pressed="true"><span></span></button></div></section></section>
+        <section class="view" id="privacy"><div class="page-heading"><div><div class="crumb">YOUR DATA</div><h1>Privacy &amp; data</h1><p class="muted">Your reports and preferences stay in your browser.</p></div></div><section class="panel privacy-card"><div class="privacy-intro"><span>♢</span><div><h2>Read-only by design</h2><p>Branchlock never writes to your repository, requests GitHub credentials, or retains raw secrets.</p></div></div><div class="privacy-grid"><div><h3>What is stored locally</h3><p>Repository names, sanitized findings, report snapshots, and your settings.</p></div><div><h3>What is never retained</h3><p>Access tokens, raw credentials, cookies, or complete repository source.</p></div></div><hr><div class="danger"><div><h3>Clear local analysis data</h3><p>Permanently removes reports and scan history from this browser.</p></div><button class="danger-btn" id="clearData">Clear local data</button></div></section></section>
+      </main>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a class="nav-link active" href="#overview" data-view="overview"><span>▦</span><em>Overview</em></a>
+      <a class="nav-link" href="#findings" data-view="findings"><span>◇</span><em>Findings</em></a>
+      <a class="nav-link" href="#workflows" data-view="workflows"><span>⌘</span><em>Workflows</em></a>
+      <a class="nav-link" href="#history" data-view="history"><span>◷</span><em>Reports</em></a>
+      <a class="nav-link" href="#settings" data-view="settings"><span>⚙</span><em>Settings</em></a>
+    </nav>
+    <div class="toast" id="toast" role="status"></div>
+    <div class="modal-backdrop" id="modal"><div class="modal"><button class="modal-close" id="modalClose">×</button><h2 id="modalTitle">Export report</h2><p id="modalText">Choose a report format. The export includes findings, evidence references, and remediation guidance.</p><div class="modal-actions"><button class="secondary" id="jsonExport">JSON</button><button class="primary" id="mdExport">Markdown</button></div></div></div>
+    <div class="finding-sheet-backdrop" id="findingSheet" aria-hidden="true"><article class="finding-sheet" role="dialog" aria-modal="true" aria-label="Finding details"><div class="sheet-handle"></div><div class="sheet-header"><span>Finding details</span><button class="modal-close" id="findingSheetClose" aria-label="Close finding details">×</button></div><div id="findingSheetContent"></div></article></div>
+    <script src="app.js"></script>
+  </body>
+</html>

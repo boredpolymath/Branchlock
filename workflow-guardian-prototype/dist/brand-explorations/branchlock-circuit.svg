@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">Branchlock Circuit brand direction</title><desc id="desc">A bright rounded-square Git branch and lock mark with a compact wordmark.</desc>
+  <rect width="900" height="300" rx="28" fill="#0f172a"/>
+  <g transform="translate(70 70)">
+    <rect width="160" height="160" rx="42" fill="#7dd3fc"/>
+    <g fill="none" stroke="#0f172a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M48 40v50c0 13 11 24 24 24h18"/>
+      <circle cx="48" cy="40" r="8" fill="#0f172a" stroke="none"/>
+      <circle cx="72" cy="114" r="8" fill="#0f172a" stroke="none"/>
+      <path d="M91 120v-14a21 21 0 0 1 42 0v14"/>
+      <rect x="82" y="120" width="60" height="48" rx="9"/>
+      <path d="M112 137v14"/>
+    </g>
+  </g>
+  <text x="270" y="137" fill="#f8fafc" font-family="Arial, sans-serif" font-size="73" font-weight="800" letter-spacing="-4">branchlock</text>
+  <rect x="274" y="157" width="180" height="7" rx="3.5" fill="#7dd3fc"/>
+  <text x="274" y="204" fill="#b7c4d5" font-family="Arial, sans-serif" font-size="19" font-weight="600">Secure every branch before it runs.</text>
+  <text x="274" y="238" fill="#8fa2bb" font-family="Arial, sans-serif" font-size="17">02 / Circuit — compact, technical, unmistakable at 24 px</text>
+</svg>

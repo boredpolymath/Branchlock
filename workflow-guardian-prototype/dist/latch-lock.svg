@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title">
+  <title id="title">Branchlock Latch icon</title>
+  <rect width="1024" height="1024" fill="#0f172a"/>
+  <g fill="none" stroke="#ff7448" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M320 470V347c0-112 86-203 192-203s192 91 192 203v123" stroke-width="104"/>
+    <rect x="176" y="432" width="672" height="432" rx="132" fill="#ff7448" stroke="none"/>
+  </g>
+  <g fill="none" stroke="#0f172a" stroke-width="70" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M350 574 524 682h138"/>
+    <path d="m350 790 174-108"/>
+  </g>
+  <g fill="#0f172a">
+    <circle cx="350" cy="574" r="49"/>
+    <circle cx="350" cy="790" r="49"/>
+    <circle cx="662" cy="682" r="49"/>
+  </g>
+</svg>

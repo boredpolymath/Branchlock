@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">Branchlock Sentinel brand direction</title><desc id="desc">A shield-shaped branch and lock mark with a refined wordmark.</desc>
+  <rect width="900" height="300" rx="28" fill="#0f172a"/>
+  <g transform="translate(70 69)" fill="none" stroke="#7dd3fc" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M80 5 135 27v48c0 48-23 80-55 94C48 155 25 123 25 75V27Z" stroke-width="8"/>
+    <path d="M60 46v38c0 11 9 20 20 20h13" stroke-width="8"/>
+    <circle cx="60" cy="46" r="8" fill="#7dd3fc" stroke="none"/>
+    <circle cx="80" cy="104" r="8" fill="#7dd3fc" stroke="none"/>
+    <path d="M94 111v-12c0-14 21-14 21 0v12" stroke-width="7"/>
+    <rect x="88" y="111" width="33" height="30" rx="6" stroke-width="7"/>
+    <path d="M104.5 122v7" stroke-width="6"/>
+  </g>
+  <text x="270" y="132" fill="#f8fafc" font-family="Arial, sans-serif" font-size="74" font-weight="700" letter-spacing="-3">Branch</text>
+  <text x="524" y="132" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="74" font-weight="700" letter-spacing="-3">lock</text>
+  <text x="274" y="174" fill="#a8b7ca" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4">GIT WORKFLOW SECURITY</text>
+  <path d="M274 205h450" stroke="#334155" stroke-width="2"/>
+  <text x="274" y="237" fill="#b7c4d5" font-family="Arial, sans-serif" font-size="17">01 / Sentinel — authoritative, assured, security-first</text>
+</svg>
