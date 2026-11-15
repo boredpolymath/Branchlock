@@ -4,7 +4,7 @@
 
 Branchlock is a clean, read-only security-review workspace for public CI configuration. It turns common workflow risks into plain-English findings, shows exactly where to look, and suggests the next safest step—without changing a repository or asking for credentials.
 
-> This repository currently contains an interactive front-end prototype with sample findings. It is designed to demonstrate the product experience; it does not yet connect to GitHub or analyze a repository's live workflow files.
+> Branchlock is a static, browser-based scanner for public GitHub Actions and GitLab CI configuration. It analyzes live public repository files without accounts, tokens, or a backend.
 
 ## Why Branchlock?
 
@@ -25,7 +25,7 @@ Branchlock also supports **public GitLab.com projects** by scanning `.gitlab-ci.
 
 ## What you can do
 
-- Review prioritized Critical, High, and Medium GitHub Actions findings.
+- Review prioritized Critical, High, and Medium GitHub Actions and GitLab CI findings.
 - Open each finding for the affected workflow, evidence, explanation, confidence, and a practical remediation.
 - Filter findings by severity or workflow, and search by title, rule, or file.
 - Browse the workflow inventory and locally retained report history.
@@ -34,7 +34,7 @@ Branchlock also supports **public GitLab.com projects** by scanning `.gitlab-ci.
 
 ## Privacy-first by design
 
-Branchlock is built around a simple promise: reviewing security should not require handing over more data than necessary. The prototype stores its sample reports and preferences in the browser. It does not request GitHub credentials, write to repositories, or retain secrets.
+Branchlock is built around a simple promise: reviewing security should not require handing over more data than necessary. It stores reports and preferences in the browser, does not request GitHub or GitLab credentials, does not write to repositories, and does not retain secrets.
 
 ## Run it locally
 
@@ -45,7 +45,7 @@ cd workflow-guardian-prototype/dist
 python3 -m http.server 8080
 ```
 
-Then visit [http://127.0.0.1:8080](http://127.0.0.1:8080). It scans accessible public GitHub repositories through GitHub's public API, requests no credentials, and deliberately rejects private repositories.
+Then visit [http://127.0.0.1:8080](http://127.0.0.1:8080). It scans accessible public GitHub repositories through GitHub's public API and public GitLab.com projects through GitLab's API. It requests no credentials and deliberately rejects private repositories/projects.
 
 GitHub Pages can host this static application directly. GitHub's anonymous API limit applies per visitor IP.
 
@@ -66,7 +66,7 @@ workflow-guardian-service/
 
 ## Product direction
 
-The next step is connecting the experience to real GitHub Actions files while preserving its read-only, least-data-needed approach. That would enable repository-backed scans, current commit context, and shareable reports without turning Branchlock into a deployment or credential-management tool.
+Branchlock will expand its public CI rule coverage while preserving its read-only, least-data-needed model. Private-repository support is intentionally out of scope unless a future version can preserve the same credential-minimizing guarantees.
 
 ## License
 
