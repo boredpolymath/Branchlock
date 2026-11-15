@@ -1,8 +1,8 @@
 # Branchlock
 
-**Spot risky GitHub Actions workflows before they become a problem.**
+**Spot risky public CI workflows before they become a problem.**
 
-Branchlock is a clean, read-only security-review workspace for GitHub Actions. It turns common workflow risks into plain-English findings, shows exactly where to look, and suggests the next safest step—without changing a repository or asking for credentials.
+Branchlock is a clean, read-only security-review workspace for public CI configuration. It turns common workflow risks into plain-English findings, shows exactly where to look, and suggests the next safest step—without changing a repository or asking for credentials.
 
 > This repository currently contains an interactive front-end prototype with sample findings. It is designed to demonstrate the product experience; it does not yet connect to GitHub or analyze a repository's live workflow files.
 
@@ -10,9 +10,22 @@ Branchlock is a clean, read-only security-review workspace for GitHub Actions. I
 
 CI workflows often have more access than teams realize. A broad token, an unpinned third-party action, or untrusted pull-request input can quietly turn routine automation into a security gap. Branchlock gives developers and reviewers a focused place to identify those risks and act on them.
 
-## What you can do in the prototype
+## Compatibility and rules
 
-- Review prioritized Critical, High, and Medium workflow findings.
+Branchlock currently scans **public GitHub repositories** for GitHub Actions workflow risks. It never asks for credentials, supports no private repositories, and reads workflow files directly from the visitor's browser through GitHub's public API.
+
+The initial GitHub Actions rule set detects:
+
+- Untrusted pull-request title or body data interpolated directly into a shell command.
+- Broad `permissions: write-all` workflow token grants.
+- Unpinned action references that are not full commit SHAs.
+- `pull_request_target` usage that needs careful handling of untrusted code.
+
+**GitLab CI is the next planned compatibility target.** It will support public GitLab.com projects with GitLab-specific CI rules for `.gitlab-ci.yml`; it is not yet included in the deployed scanner and is intentionally not advertised as live support.
+
+## What you can do
+
+- Review prioritized Critical, High, and Medium GitHub Actions findings.
 - Open each finding for the affected workflow, evidence, explanation, confidence, and a practical remediation.
 - Filter findings by severity or workflow, and search by title, rule, or file.
 - Browse the workflow inventory and locally retained report history.
