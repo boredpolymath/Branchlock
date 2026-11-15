@@ -1,7 +1,7 @@
 # The deployable app is authored source code, not a vendored or generated artifact.
 # Keep it visible to GitHub's language analyzer even though it is served from dist/.
 workflow-guardian-prototype/dist/** -linguist-vendored -linguist-generated
-workflow-guardian-prototype/dist/*.js linguist-detectable=true
+workflow-guardian-prototype/dist/*.js linguist-detectable
 # Styling and markup remain reviewable but do not define the app's primary language.
-workflow-guardian-prototype/dist/*.css linguist-detectable=false
-workflow-guardian-prototype/dist/*.html linguist-detectable=false
+workflow-guardian-prototype/dist/*.css -linguist-detectable
+workflow-guardian-prototype/dist/*.html -linguist-detectable
