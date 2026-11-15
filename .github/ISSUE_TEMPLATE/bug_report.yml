@@ -1,0 +1,36 @@
+name: Bug report
+description: Tell us about a reproducible problem in Branchlock.
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Do not include credentials, tokens, or sensitive repository data.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the unexpected behavior and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: "e.g., Firefox 124"
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Screenshots are welcome if they do not contain sensitive information.

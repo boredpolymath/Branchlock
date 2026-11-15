@@ -54,4 +54,4 @@ The next step is connecting the experience to real GitHub Actions files while pr
 
 ## License
 
-No license has been selected yet. All rights reserved until one is added.
+Branchlock is released under the [MIT License](LICENSE).
