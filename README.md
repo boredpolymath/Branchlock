@@ -21,7 +21,7 @@ The initial GitHub Actions rule set detects:
 - Unpinned action references that are not full commit SHAs.
 - `pull_request_target` usage that needs careful handling of untrusted code.
 
-**GitLab CI is the next planned compatibility target.** It will support public GitLab.com projects with GitLab-specific CI rules for `.gitlab-ci.yml`; it is not yet included in the deployed scanner and is intentionally not advertised as live support.
+Branchlock also supports **public GitLab.com projects** by scanning `.gitlab-ci.yml` for remote configuration, job-token, shell-download, and mutable-image risks. Private projects and self-managed GitLab instances are not supported.
 
 ## What you can do
 
