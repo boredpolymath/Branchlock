@@ -2,5 +2,6 @@
 # Keep it visible to GitHub's language analyzer even though it is served from dist/.
 workflow-guardian-prototype/dist/** -linguist-vendored -linguist-generated
 workflow-guardian-prototype/dist/*.js linguist-detectable=true
-workflow-guardian-prototype/dist/*.css linguist-detectable=true
-workflow-guardian-prototype/dist/*.html linguist-detectable=true
+# Styling and markup remain reviewable but do not define the app's primary language.
+workflow-guardian-prototype/dist/*.css linguist-detectable=false
+workflow-guardian-prototype/dist/*.html linguist-detectable=false
