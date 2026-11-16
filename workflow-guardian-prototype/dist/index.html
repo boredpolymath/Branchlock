@@ -17,7 +17,10 @@
     <a class="skip" href="#main">Skip to content</a>
     <header class="topbar">
       <a class="brand" href="#overview" aria-label="Branchlock home"><span class="brand-mark" aria-hidden="true"><img src="latch-lock.svg" alt="" /></span><span class="brand-name">Branchlock</span></a>
-      <div class="top-search"><span>⌕</span><input id="repoInput" aria-label="Public GitHub or GitLab repository URL" value="octo-labs/payment-service" placeholder="owner/repository or GitHub/GitLab URL" /><kbd>⌘ K</kbd></div>
+      <div class="repository-picker">
+        <div class="top-search"><span>⌕</span><input id="repoInput" aria-label="Public GitHub repository" value="octo-labs/payment-service" placeholder="owner/repository or GitHub URL" /><kbd>⌘ K</kbd></div>
+        <label class="provider-control"><span class="sr-only">Repository provider</span><select id="providerSelect" aria-label="Repository provider" title="Repository provider"><option value="github">GitHub</option><option value="gitlab">GitLab</option></select></label>
+      </div>
       <div class="top-actions"><button class="icon-btn theme-button" id="themeToggle" title="Switch to light theme" aria-label="Switch to light theme" aria-pressed="true">☼</button><button class="icon-btn" id="helpBtn" title="Help" aria-label="Help">?</button></div>
     </header>
     <div class="layout">
